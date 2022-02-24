@@ -76,6 +76,7 @@
                 done: false
             }
             this.tasks.push(newT)
+            this.newTask = ''
         },
         doneTask(id) {
             let task = this.tasks.filter(task => task.id === id)[0]
