@@ -1,10 +1,50 @@
 <template>
- <h1>HelloWorld</h1>
+ <div class="home pa-6">
+
+    <v-list
+      flat
+    >
+    <div v-for="task in tasks" :key="task.id">
+        <v-list-item>
+        <template v-slot:default="{ active }">
+            <v-list-item-action>
+            <v-checkbox :input-value="active"></v-checkbox>
+            </v-list-item-action>
+
+            <v-list-item-content>
+            <v-list-item-title>{{ task.title}}</v-list-item-title>
+            </v-list-item-content>
+        </template>
+        </v-list-item>
+        <v-divider></v-divider>
+    </div>
+  
+    </v-list>
+ </div>
 </template>
 
 <script>
 
   export default {
     name: 'Todo',
+
+    data() {
+        return {
+            tasks:[
+                { 
+                    id: 1,
+                    title: 'Mafor'
+                }, 
+                { 
+                    id: 2,
+                    title: 'Mafor Ke'
+                }, 
+                { 
+                    id: 3,
+                    title: 'Mafor Pa'
+                },
+            ]
+        }
+    }
   }
 </script>
