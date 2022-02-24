@@ -1,6 +1,12 @@
 <template>
  <div class="home pa-6">
-
+    <v-text-field
+        class="pa-4"
+        outlined
+        label="Append"
+        append-icon="mdi-plus"
+        >
+    </v-text-field>
     <v-list
       flat
     >
@@ -17,7 +23,7 @@
             </v-list-item-title>
             </v-list-item-content>
             <v-list-item-action>
-                <v-btn icon>
+                <v-btn icon @click="deleteTask(task.id)">
                     <v-icon color="primary">mdi-delete</v-icon>
                 </v-btn>
             </v-list-item-action>
@@ -60,6 +66,9 @@
         doneTask(id) {
             let task = this.tasks.filter(task => task.id === id)[0]
             task.done = !task.done
+        },
+        deleteTask(id) {
+            this.tasks = this.tasks.filter(task => task.id !== id)
         }
     }
   }
